@@ -64,5 +64,3 @@ set relativenumber
 " Key mappings
 map <F12> :wa<RETURN>
 inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
-
-#testcomment
