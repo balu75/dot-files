@@ -58,6 +58,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 colorscheme solarized
+set background=light
 
 set relativenumber
 
