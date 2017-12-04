@@ -40,30 +40,34 @@ set shiftwidth=3
 
 set expandtab
 
-set foldlevel=0
-
-set foldnestmax=1
-
-set foldmethod=indent
-
 set laststatus=2
 
 set encoding=utf-8
 
+au BufNewFile,BufRead *.js
+         \ set foldlevel=0 |
+         \ set foldnestmax=1 |
+         \ set foldmethod=indent |
+
 au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+         \ set foldlevel=0 |
+         \ set foldnestmax=1 |
+         \ set foldmethod=indent |
+         \ set tabstop=4 |
+         \ set softtabstop=4 |
+         \ set shiftwidth=4 |
+         \ set textwidth=79 |
+         \ set expandtab |
+         \ set autoindent |
+         \ set fileformat=unix
 
 colorscheme solarized
-set background=light
+set background=dark
 
 set relativenumber
 
 " Key mappings
 map <F12> :wa<RETURN>
 inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
+
+let g:powerline_pycmd="py3"

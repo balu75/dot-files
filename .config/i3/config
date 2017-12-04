@@ -176,7 +176,7 @@ hide_edge_borders none
 
 new_window normal
 
-for_window [class="Chromium" title=" - Chromium$"] border none
+for_window [class="Chromium"] border none
 
 # solarized colorscheme
 set $base03    #002b36
@@ -204,3 +204,8 @@ client.urgent           $base02 #900000 #ffffff #900000   #900000
 client.placeholder      $base02 #0c0c0c #ffffff #000000   #0c0c0c
 
 floating_maximum_size 300 x 300
+
+bindsym $mod+c exec clipmenu
+bindsym $mod+shift+i exec chromium --incognito
+
+exec --no-startup-id /usr/bin/chromium
