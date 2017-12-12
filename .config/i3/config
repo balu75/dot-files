@@ -11,6 +11,24 @@
 
 set $mod Mod4
 
+# solarized colorscheme
+set $base03    #002b36
+set $base02    #073642
+set $base01    #586e75
+set $base00    #657b83
+set $base0     #839496
+set $base1     #93a1a1
+set $base2     #eee8d5
+set $base3     #fdf6e3
+set $yellow    #b58900
+set $orange    #cb4b16
+set $red       #dc322f
+set $magenta   #d33682
+set $violet    #6c71c4
+set $blue      #268bd2
+set $cyan      #2aa198
+set $green     #859900
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:bitstream-vera 8
@@ -157,6 +175,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        colors {
+            background $base02
+        }
 }
 
 set $refresh &&pkill -USR1 i3status
@@ -172,40 +193,20 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 # decrease screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
 
-hide_edge_borders none
+hide_edge_borders both
 
-new_window normal
+new_window pixel 1
 
 for_window [class="Chromium"] border none
 
-# solarized colorscheme
-set $base03    #002b36
-set $base02    #073642
-set $base01    #586e75
-set $base00    #657b83
-set $base0     #839496
-set $base1     #93a1a1
-set $base2     #eee8d5
-set $base3     #fdf6e3
-set $yellow    #b58900
-set $orange    #cb4b16
-set $red       #dc322f
-set $magenta   #d33682
-set $violet    #6c71c4
-set $blue      #268bd2
-set $cyan      #2aa198
-set $green     #859900
-
 # class                 border  backgr. text    indicator child_border
-client.focused          $base02 $base02 $blue   #00ff00   #ffffff
-client.focused_inactive $base02 $base02 $base00 #484e50   #5f676a
-client.unfocused        $base02 $base03 $base01 #292d2e   #222222
-client.urgent           $base02 #900000 #ffffff #900000   #900000
-client.placeholder      $base02 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          $base02 $base02 #ffffff $base02   $base01
+client.focused_inactive $base02 $base02 #ffffff $base02   $base01
+client.unfocused        $base02 $base03 #ffffff $base02   $base01
+client.urgent           $base02 $red    #ffffff $base02   $base01
+client.placeholder      $base02 $yellow #ffffff $base02   $base01
 
 floating_maximum_size 300 x 300
 
 bindsym $mod+c exec clipmenu
 bindsym $mod+shift+i exec chromium --incognito
-
-exec --no-startup-id /usr/bin/chromium
