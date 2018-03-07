@@ -1,4 +1,4 @@
-URxvt.font: xft:Inconsolata\ for\ powerline:pixelsize=12
+URxvt.font: xft:Inconsolata\ for\ powerline:pixelsize=15
 URxvt.scrollBar: false
 
 ! special
