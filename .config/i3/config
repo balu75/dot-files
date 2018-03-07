@@ -95,30 +95,31 @@ bindsym $mod+a focus parent
 # workspace names
 set $ws1 1:www
 set $ws2 2:ter
+set $ws3 3:ter
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace 0
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace 0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -153,31 +154,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
-
-set $refresh &&pkill -USR1 i3status
-
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute $refresh
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute $refresh
-bindsym XF86AudioMute exec amixer -q set Master toggle $refresh
-bindsym XF86AudioMicMute exec amixer -q set Mic toggle $refresh
-
-# increase screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
-
-# decrease screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
-
-hide_edge_borders none
-
-new_window normal
-
-for_window [class="Chromium" title=" - Chromium$"] border none
-
 # solarized colorscheme
 set $base03    #002b36
 set $base02    #073642
@@ -196,11 +172,42 @@ set $blue      #268bd2
 set $cyan      #2aa198
 set $green     #859900
 
-# class                 border  backgr. text    indicator child_border
-client.focused          $base02 $base02 $blue   #00ff00   #ffffff
-client.focused_inactive $base02 $base02 $base00 #484e50   #5f676a
-client.unfocused        $base02 $base03 $base01 #292d2e   #222222
-client.urgent           $base02 #900000 #ffffff #900000   #900000
-client.placeholder      $base02 #0c0c0c #ffffff #000000   #0c0c0c
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+        colors {
+           background $base03
+        }
+}
 
-floating_maximum_size 300 x 300
+set $refresh &&pkill -USR1 i3status
+
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute $refresh
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute $refresh
+bindsym XF86AudioMute exec amixer -q set Master toggle $refresh
+bindsym XF86AudioMicMute exec amixer -q set Mic toggle $refresh
+
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
+
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
+
+#hide_edge_borders both
+
+new_window pixel 2
+
+for_window [class="Chromium" title=" - Chromium$"] border none
+#assign [class="Chromium"] $ws1
+
+# class                 border  backgr. text    indicator   child_border
+client.focused          $base02 $base02 $blue   $blue       $base01
+client.focused_inactive $base02 $base03 $base01 $blue       $base02
+client.unfocused        $base02 $base03 $base01 $blue       $base02
+client.urgent           $base02 $base03 $base01 $blue       $base02
+client.placeholder      $base02 $base03 $base01 $blue       $base02
+
+floating_maximum_size 600 x 600
+
+bindsym $mod+c exec clipmenu
