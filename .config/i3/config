@@ -54,7 +54,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -171,16 +171,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-        colors {
-            background $base02
-        }
-}
-
-set $refresh &&pkill -USR1 i3status
+bindsym $mod+c exec clipmenu
+bindsym $mod+shift+i exec chromium --incognito
+bindsym $mod+F1 exec chromium
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute $refresh
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute $refresh
@@ -193,9 +186,22 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 # decrease screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
 
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+        colors {
+            background $base02
+        }
+}
+
+set $refresh &&pkill -USR1 i3status
+
+
 hide_edge_borders both
 
 new_window pixel 1
+new_float normal
 
 for_window [class="Chromium"] border none
 
@@ -206,7 +212,5 @@ client.unfocused        $base02 $base03 #ffffff $base02   $base01
 client.urgent           $base02 $red    #ffffff $base02   $base01
 client.placeholder      $base02 $yellow #ffffff $base02   $base01
 
-floating_maximum_size 300 x 300
+floating_maximum_size 700 x 500
 
-bindsym $mod+c exec clipmenu
-bindsym $mod+shift+i exec chromium --incognito

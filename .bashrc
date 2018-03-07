@@ -2,6 +2,13 @@
 # ~/.bashrc
 #
 
+alias ll="ls -l"
+alias la="ls -la"
+
+alias reboot="sudo systemctl reboot"
+alias poweroff="sudo systemctl poweroff"
+alias halt="sudo systemctl halt"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

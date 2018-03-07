@@ -23,8 +23,8 @@ call vundle#end()            " required
 "set guifont=consolas:h11
 "set guioptions-=T
 "set guioptions-=m
-"colorscheme solarized
-"set background=dark
+colorscheme solarized
+set background=dark
 
 filetype indent plugin on
 
