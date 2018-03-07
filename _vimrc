@@ -42,14 +42,24 @@ set relativenumber
 colorscheme solarized
 set background=dark
 
+au BufNewFile,BufRead *.js
+         \ set foldlevel=0 |
+         \ set foldnestmax=1 |
+         \ set foldmethod=indent |
+
 au BufNewFile,BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
+         \ set foldlevel=0 |
+         \ set foldnestmax=1 |
+         \ set foldmethod=indent |
+         \ set tabstop=4 |
+         \ set softtabstop=4 |
+         \ set shiftwidth=4 |
+         \ set textwidth=79 |
+         \ set expandtab |
+         \ set autoindent |
+         \ set fileformat=unix
+
+set relativenumber
 
 " Key mappings
 map <F12> :wa<RETURN>
