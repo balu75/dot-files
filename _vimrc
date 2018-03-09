@@ -33,9 +33,6 @@ set smartindent
 set tabstop=3 
 set shiftwidth=3
 set expandtab
-set foldlevel=0
-set foldnestmax=1
-set foldmethod=indent
 set laststatus=2
 set encoding=utf-8
 set relativenumber
@@ -43,9 +40,9 @@ colorscheme solarized
 set background=dark
 
 au BufNewFile,BufRead *.js
-         \ set foldlevel=0 |
-         \ set foldnestmax=1 |
          \ set foldmethod=indent |
+         \ set foldnestmax=2 |
+         \ set foldlevel=1
 
 au BufNewFile,BufRead *.py
          \ set foldlevel=0 |
