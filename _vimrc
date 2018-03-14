@@ -20,34 +20,29 @@ Plugin 'kien/ctrlp.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-"set guifont=consolas:h11
-"set guioptions-=T
-"set guioptions-=m
+if has("gui_running")
+   set guifont=consolas:h11
+   set guioptions-=T
+   set guioptions-=m
+endif
+
+filetype indent plugin on
+syntax on
+set belloff=all
+set smartindent
+set tabstop=3 
+set shiftwidth=3
+set expandtab
+set laststatus=2
+set encoding=utf-8
+set relativenumber
 colorscheme solarized
 set background=dark
 
-filetype indent plugin on
-
-syntax on
-
-set belloff=all
-
-set smartindent
-
-set tabstop=3 
-
-set shiftwidth=3
-
-set expandtab
-
-set laststatus=2
-
-set encoding=utf-8
-
 au BufNewFile,BufRead *.js
-         \ set foldlevel=0 |
-         \ set foldnestmax=1 |
          \ set foldmethod=indent |
+         \ set foldnestmax=2 |
+         \ set foldlevel=1
 
 au BufNewFile,BufRead *.py
          \ set foldlevel=0 |
@@ -60,7 +55,6 @@ au BufNewFile,BufRead *.py
          \ set expandtab |
          \ set autoindent |
          \ set fileformat=unix
-
 
 set relativenumber
 
