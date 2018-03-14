@@ -47,6 +47,14 @@ font pango:bitstream-vera 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# workspace names
+set $ws1 1:www
+set $ws2 2:ter
+set $ws3 3:ter
+
+# KEYBINDINGS
+# ###########
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -110,10 +118,6 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# workspace names
-set $ws1 1:www
-set $ws2 2:ter
-set $ws3 3:ter
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -147,6 +151,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -170,7 +175,22 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute $refresh
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute $refresh
+bindsym XF86AudioMute exec amixer -q set Master toggle $refresh
+bindsym XF86AudioMicMute exec amixer -q set Mic toggle $refresh
+
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
+
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
+
+bindsym $mod+shift+i exec chromium --incognito
+bindsym $mod+F1 exec chromium
+
+# KEYBINDINGS END
+# ###############
 
 # solarized colorscheme
 set $base03    #002b36
@@ -201,16 +221,6 @@ bar {
 
 set $refresh &&pkill -USR1 i3status
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute $refresh
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute $refresh
-bindsym XF86AudioMute exec amixer -q set Master toggle $refresh
-bindsym XF86AudioMicMute exec amixer -q set Mic toggle $refresh
-
-# increase screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 
-
-# decrease screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 
 
 #hide_edge_borders both
 
