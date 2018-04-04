@@ -6,6 +6,7 @@ filetype off
 " call :PluginInstall for installing the plugins
 "
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -16,6 +17,9 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -63,3 +67,7 @@ map <F12> :wa<RETURN>
 inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
 
 let g:powerline_pycmd="py3"
+let g:powerline_loaded=1
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
