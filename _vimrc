@@ -1,7 +1,5 @@
 set nocompatible
 
-filetype on
-
 " set the runtime path to include Vundle and initialize
 " call :PluginInstall for installing the plugins
 "
@@ -22,6 +20,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'moll/vim-node'
+Plugin 'digitaltoad/vim-jade'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -34,6 +35,8 @@ endif
 
 filetype indent plugin on
 syntax on
+filetype on
+
 set belloff=all
 set smartindent
 set tabstop=3
