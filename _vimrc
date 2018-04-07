@@ -23,6 +23,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'moll/vim-node'
 Plugin 'digitaltoad/vim-jade'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,8 +40,8 @@ filetype on
 
 set belloff=all
 set smartindent
-set tabstop=3
-set shiftwidth=3
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set laststatus=2
 set encoding=utf-8
@@ -81,7 +82,14 @@ let g:airline_powerline_fonts=1
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
+"let g:syntastic_javascript_jslint_args = "--edition=latest"
+
 set timeoutlen=1000 ttimeoutlen=0
 
 " vv to generate new vertical split
 nnoremap <silent> vv <C-w>v
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
