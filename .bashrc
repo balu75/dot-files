@@ -1,8 +1,9 @@
 #
 # ~/.bashrc
 #
+bind -x '"\C-e": clear'
 
-alias chpro='chromium --proxy-server="socks5://localhost:8080"' 
+alias chpro='chromium --proxy-server="socks5://localhost:8080"'
 alias ll="ls -l"
 alias la="ls -la"
 alias ls='ls --color=auto'

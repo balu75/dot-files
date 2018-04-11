@@ -24,6 +24,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'moll/vim-node'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,7 +85,6 @@ let g:airline_powerline_fonts=1
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
-"let g:syntastic_javascript_jslint_args = "--edition=latest"
 
 set timeoutlen=1000 ttimeoutlen=0
 
@@ -93,3 +95,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_jshint_args = "--esversion=6"
+
+let g:deoplete#enable_at_startup = 1
