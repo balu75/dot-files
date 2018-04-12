@@ -27,6 +27,9 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,10 +94,10 @@ set timeoutlen=1000 ttimeoutlen=0
 " vv to generate new vertical split
 nnoremap <silent> vv <C-w>v
 
+let g:deoplete#enable_at_startup = 1
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"let g:syntastic_javascript_jshint_args = "--esversion=6"
-
-let g:deoplete#enable_at_startup = 1
+let g:syntastic_javascript_checkers = ['eslint']
