@@ -47,6 +47,9 @@ alias reboot="sudo systemctl reboot"
 alias poweroff="sudo systemctl poweroff"
 alias halt="sudo systemctl halt"
 
+alias sagent="eval ssh-agent $SHELL"
+alias cl="clear"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

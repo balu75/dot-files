@@ -42,25 +42,27 @@ endif
 
 filetype indent plugin on
 syntax on
-filetype on
 
 set belloff=all
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set laststatus=2
 set encoding=utf-8
-set relativenumber
+set number relativenumber
+set cursorline
 colorscheme solarized
 set background=dark
+set showcmd
 
-au BufNewFile,BufRead *.js
-         \ set foldmethod=indent |
-         \ set foldnestmax=1 |
-         \ set foldlevel=1
+au FileType javascript
+         \ set foldmethod=indent
+         \ set foldlevel=2
+         \ set foldnestmax=2
+         \ set foldcolumn=2
 
-au BufNewFile,BufRead *.py
+au FileType python
          \ set foldlevel=0 |
          \ set foldnestmax=1 |
          \ set foldmethod=indent |
@@ -71,8 +73,6 @@ au BufNewFile,BufRead *.py
          \ set expandtab |
          \ set autoindent |
          \ set fileformat=unix
-
-set relativenumber
 
 " Key mappings
 map <F12> :wa<RETURN>
@@ -101,3 +101,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
