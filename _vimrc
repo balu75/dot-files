@@ -75,13 +75,23 @@ au FileType python
          \ set fileformat=unix
 
 " Key mappings
-map <F12> :wa<RETURN>
-imap <F12> <ESC>:wa<RETURN>
-inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
-map <C-n> :NERDTreeFocus<CR>
-map <C-S-n> :NERDTreeToggle<CR>
-imap jk <ESC>
+" ============
+" Leader mappings
+map <Leader>nf :NERDTreeFocus<CR>
+map <Leader>nt :NERDTreeToggle<CR>
 
+" Normal mappings
+imap jk <ESC>
+map <C-s> :wa<RETURN>
+imap <C-s> <ESC>:wa<RETURN>
+
+inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
+
+map <F4> :cn<CR>zz
+map <silent> <S-F4> :cp<CR> <bar> zz
+
+" Powerline settings
+" ==================
 let g:powerline_pycmd="py3"
 let g:powerline_loaded=1
 let g:airline_powerline_fonts=1
