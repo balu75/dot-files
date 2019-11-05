@@ -62,7 +62,9 @@ set cm=blowfish2
 set showcmd
 set path+=**
 set wrap lbr
-let $TMP="c:/temp"
+if has('win32')
+    let $TMP="c:/temp"
+endif
 
 if has("gui_running")
     set guifont=DejaVu_Sans_Mono_for_Powerline:h10:cANSI:qDRAFT
