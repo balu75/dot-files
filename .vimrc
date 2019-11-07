@@ -62,6 +62,7 @@ set cm=blowfish2
 set showcmd
 set path+=**
 set wrap lbr
+set t_ut= "helps with background color problems
 if has('win32')
     let $TMP="c:/temp"
 endif
