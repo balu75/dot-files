@@ -57,7 +57,7 @@ set smartcase
 set incsearch
 set nolist
 set listchars=trail:·,tab:»\ ,eol:$
-set directory=C:/Users/tgies/.vim/swapfiles//
+set directory=~/.vim/swapfiles//
 set cm=blowfish2
 set showcmd
 set path+=**
