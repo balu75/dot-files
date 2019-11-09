@@ -1,4 +1,6 @@
-URxvt.font: xft:Inconsolata\ for\ powerline:pixelsize=14
+URxvt.font: xft:Source Code Pro:pixelsize=14,xft:PowerlineSymbols:pixelsize=14
+
+URxvt.letterSpace: -1 
 URxvt.scrollBar: false
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults

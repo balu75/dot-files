@@ -32,7 +32,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-/usr/bin/clipmenud&
-/home/thomas/suckless/bar/bar&
+/usr/bin/clipmenud &
+/home/thomas/suckless/bar/bar &
+#/usr/local/bin/st -e /home/thomas/bin/tmux_start.sh&
+#/usr/bin/chromium &
+
 exec dwm
 #exec i3

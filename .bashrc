@@ -1,7 +1,6 @@
 #
 # ~/.bashrc
 #
-bind -x '"\C-e": clear'
 
 # Git
 alias gi="git init"
@@ -27,6 +26,9 @@ alias nrs="npm run start";
 alias nrb="npm run build";
 alias nrt="npm run test";
 alias nrc="npm run commit";
+alias pb="curl -F c=@- https://ptpb.pw"
+alias yviewer="youtube-viewer --player=mpv"
+alias mymount="sudo mount -o gid=users,fmask=113,dmask=002"
 
 # Clipboard
 alias setclip='xclip -selection c'
@@ -50,16 +52,24 @@ alias halt="sudo systemctl halt"
 alias sagent="eval ssh-agent $SHELL"
 alias cl="clear"
 
+alias monoff="xset dpms force off"
+
+alias ffp="firefox --private-window"
+
+alias ls="ls --color=auto"
+alias ll="ls -lah"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='[\u@\h \W]\$ '
-
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
+if [ "$TERM" != "linux" ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+fi
 
 export EDITOR=/usr/bin/vim
+export MC_SKIN=$HOME/.config/mc/solarized.ini
 
-PATH="$PATH:/home/thomas/node-v8.11.1-linux-x64/bin"
+stty -ixon
