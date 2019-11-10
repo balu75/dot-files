@@ -1,6 +1,10 @@
 #!/bin/bash
 
-ln -s ~/dot-files/.bashrc ~/.bashrc
-ln -s ~/dot-files/.aliases ~/.aliases
-ln -s ~/dot-files/.tmux.conf ~/.tmux.conf
-ln -s ~/dot-files/.vimrc ~/.vimrc
+function createln {
+	ln -sf ~/dot-files/$1 ~/$1
+}
+
+createln .bashrc
+createln .aliases
+createln .tmux.conf
+createln .vimrc
