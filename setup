@@ -2,7 +2,7 @@
 
 function createln {
     rm -v ~/$1
-	ln -sfv ~/dot-files/$1 ~/$1
+    ln -sfv ~/dot-files/$1 ~/$1
 }
 
 createln .bashrc
