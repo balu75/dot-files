@@ -1,7 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source ".aliases"
+source "~/.aliases"
 
 PATH="$PATH:/home/thomas/node-v8.11.1-linux-x64/bin"
 
