@@ -37,8 +37,8 @@ fi
 #/usr/local/bin/st -e /home/thomas/bin/tmux_start.sh&
 #/usr/bin/chromium &
 
-# switch caps lock and esc
-setxkbmap -option caps:swapescape
+# switch caps lock to esc
+setxkbmap -option caps:escape
 
 exec dwm
 #exec i3
