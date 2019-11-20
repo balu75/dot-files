@@ -92,8 +92,8 @@ noremap <Leader>t :NERDTreeFocus<CR>
 noremap <Leader>v "*p
 noremap <Leader>w :w<RETURN>
 noremap <Leader>s :wa<RETURN>
-noremap <Leader>p "*p
-vnoremap <Leader>c "*y
+noremap <Leader>p "+p
+vnoremap <Leader>c "+y
 inoremap <Leader><Leader> <ESC>
 
 noremap <F4> :cn<CR>zz
