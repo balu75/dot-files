@@ -95,6 +95,7 @@ noremap <Leader>s :wa<RETURN>
 noremap <Leader>p "+p
 vnoremap <Leader>c "+y
 inoremap <Leader><Leader> <ESC>
+inoremap jj <ESC>
 
 noremap <F4> :cn<CR>zz
 noremap <silent> <S-F4> :cp<CR> <bar> zz
