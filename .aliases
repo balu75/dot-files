@@ -58,7 +58,8 @@ alias v='vim'
 alias vi="vim"
 
 # Files
-alias l="ls -l"
+alias l="ls -hl"
+alias ll="ls -ahl"
 
 # Chromium with proxy
 alias chpro='chromium --proxy-server="socks5://localhost:8080"'
@@ -70,4 +71,3 @@ alias halt="sudo systemctl halt"
 
 alias cl="clear"
 
-alias ll="ls -l"
