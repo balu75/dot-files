@@ -70,4 +70,4 @@ alias poweroff="sudo systemctl poweroff"
 alias halt="sudo systemctl halt"
 
 alias cl="clear"
-
+alias mon_off="xset dpms force off"
