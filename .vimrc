@@ -25,8 +25,9 @@ Plugin 'evidens/vim-twig'
 "Plugin 'Shougo/deoplete.nvim'
 "Plugin 'roxma/nvim-yarp'
 "Plugin 'roxma/vim-hug-neovim-rpc'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'epilande/vim-react-snippets'
 call vundle#end()
 
 
@@ -104,6 +105,16 @@ inoremap <C-s> <ESC>:wa<RETURN>
 inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
 
 " **************** Plugin Configurations
+
+" Ultisnips
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " NerdTree
 let g:NERDTreeAutoCenter=0
