@@ -28,6 +28,7 @@ Plugin 'evidens/vim-twig'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
+Plugin 'maxmellon/vim-jsx-pretty'
 call vundle#end()
 
 
@@ -96,7 +97,9 @@ noremap <Leader>w :w<RETURN>
 noremap <Leader>s :wa<RETURN>
 noremap <Leader>p "+p
 vnoremap <Leader>c "+y
+
 inoremap <Leader><Leader> <ESC>
+vnoremap <Leader><Leader> <ESC>
 inoremap jj <ESC>
 
 noremap <F4> :cn<CR>zz
@@ -142,6 +145,14 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_java_checkers = []
+
+" Emmet
+let g:user_emmet_settings = {
+\    'html': {
+\        'empty_element_suffix': ' />',
+\    },
+\}
+
 
 " **************** Own Functions
 
