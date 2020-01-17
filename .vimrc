@@ -50,7 +50,7 @@ set colorcolumn=100
 set backspace=2
 set scrolloff=5
 set fileformat=unix
-set hlsearch
+"set hlsearch
 set cursorline
 set ignorecase
 set smartcase
@@ -89,12 +89,14 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
 let mapleader=","
 
 noremap <Leader>t :NERDTreeFocus<CR>
+noremap <Leader>T :NERDTreeToggle<CR>
 noremap <Leader>v "*p
 noremap <Leader>w :w<RETURN>
 noremap <Leader>s :wa<RETURN>
 noremap <Leader>p "*p
 vnoremap <Leader>c "*y
-inoremap <Leader><Leader> <ESC>
+inoremap jj <ESC>
+noremap <Leader>h :set hls!<RETURN>
 
 noremap <F4> :cn<CR>zz
 noremap <silent> <S-F4> :cp<CR> <bar> zz
@@ -106,6 +108,7 @@ inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
 " NerdTree
 let g:NERDTreeAutoCenter=0
 let g:NERDTreeWinSize=40
+let g:NERDTreeQuitOnOpen=1
 
 " Powerline
 let g:powerline_pycmd="py3"
