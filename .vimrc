@@ -20,12 +20,15 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'evidens/vim-twig'
 "Plugin 'christoomey/vim-tmux-navigator'
 "Plugin 'Shougo/deoplete.nvim'
 "Plugin 'roxma/nvim-yarp'
 "Plugin 'roxma/vim-hug-neovim-rpc'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'epilande/vim-react-snippets'
+Plugin 'maxmellon/vim-jsx-pretty'
 call vundle#end()
 
 
@@ -90,20 +93,29 @@ let mapleader=","
 
 noremap <Leader>t :NERDTreeFocus<CR>
 noremap <Leader>T :NERDTreeToggle<CR>
-noremap <Leader>v "*p
+noremap <Leader>v "+p
 noremap <Leader>w :w<RETURN>
 noremap <Leader>s :wa<RETURN>
-noremap <Leader>p "*p
-vnoremap <Leader>c "*y
 inoremap jj <ESC>
 noremap <Leader>h :set hls!<RETURN>
-
+noremap <Leader>p "+p
+vnoremap <Leader>c "+y
 noremap <F4> :cn<CR>zz
 noremap <silent> <S-F4> :cp<CR> <bar> zz
 inoremap <C-s> <ESC>:wa<RETURN>
 inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
 
 " **************** Plugin Configurations
+
+" Ultisnips
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " NerdTree
 let g:NERDTreeAutoCenter=0
@@ -132,6 +144,14 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_java_checkers = []
+
+" Emmet
+let g:user_emmet_settings = {
+\    'html': {
+\        'empty_element_suffix': ' />',
+\    },
+\}
+
 
 " **************** Own Functions
 

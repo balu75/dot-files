@@ -5,7 +5,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -73,6 +73,7 @@ static const char *clipmenucmd[] = { "clipmenu", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+    /* XF86Launch1*/
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = clipmenucmd } },
@@ -113,6 +114,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMicMute,       spawn,          {.v = dvolmicmutecmd } },
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          {.v = dbrightupcmd } },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          {.v = dbrightdowncmd } },
+	{ 0,                            XF86XK_Launch1,            spawn,          {.v = chromecmd } },
    { MODKEY,                       XK_F1,                     spawn,          {.v = chromecmd } },
    { MODKEY | ShiftMask,           XK_F1,                     spawn,          {.v = chromeinccmd } },
 };
