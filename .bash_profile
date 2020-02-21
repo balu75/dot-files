@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-PATH="$PATH:/home/thomas/node-v8.11.1-linux-x64/bin:/home/thomas/bin"
+PATH="$PATH:$HOME/bin"
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

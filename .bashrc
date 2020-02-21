@@ -3,7 +3,6 @@
 
 source "$HOME/.aliases"
 
-PATH="$PATH:/home/thomas/dev/node-v12.14.0-linux-x64/bin"
 
 export TERM='xterm-256color'
 export EDITOR=/usr/bin/vim
