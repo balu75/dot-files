@@ -36,10 +36,11 @@ call vundle#end()
 
 filetype indent plugin on
 syntax on
+
+set background=light
 colorscheme solarized
 
 set nocompatible
-set background=dark
 set ff=unix
 set belloff=all
 set smartindent
