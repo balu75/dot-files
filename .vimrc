@@ -35,9 +35,9 @@ call vundle#end()
 " **************** General Settings
 
 filetype indent plugin on
-syntax on
 
-set background=light
+syntax on
+set background=dark
 colorscheme solarized
 
 set nocompatible
