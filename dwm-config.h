@@ -70,6 +70,7 @@ static const char *dbrightupcmd[] = { "xbacklight", "-inc", "20", NULL };
 static const char *chromecmd[] = { "chromium", NULL };
 static const char *chromeinccmd[] = { "chromium", "--incognito", NULL };
 static const char *clipmenucmd[] = { "clipmenu", NULL };
+static const char *configcmd[] = { "/home/thomas/dev/config/config", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -114,7 +115,7 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMicMute,       spawn,          {.v = dvolmicmutecmd } },
 	{ 0,                            XF86XK_MonBrightnessUp,    spawn,          {.v = dbrightupcmd } },
 	{ 0,                            XF86XK_MonBrightnessDown,  spawn,          {.v = dbrightdowncmd } },
-	{ 0,                            XF86XK_Launch1,            spawn,          {.v = chromecmd } },
+	{ 0,                            XF86XK_Launch1,            spawn,          {.v = configcmd } },
    { MODKEY,                       XK_F1,                     spawn,          {.v = chromecmd } },
    { MODKEY | ShiftMask,           XK_F1,                     spawn,          {.v = chromeinccmd } },
 };

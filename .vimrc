@@ -38,6 +38,7 @@ filetype indent plugin on
 
 syntax on
 set background=dark
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 set nocompatible
@@ -66,7 +67,7 @@ set cm=blowfish2
 set showcmd
 set path+=**
 set wrap lbr
-set t_ut= "helps with background color problems
+"set t_ut= "helps With background color problems
 if has('win32')
     let $TMP="c:/temp"
 endif
@@ -130,7 +131,7 @@ let g:powerline_loaded=1
 " Airline
 let g:airline_powerline_fonts=1
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long' ]
-let g:airline_theme='solarized'
+let g:airline_theme='base16_solarized'
 
 " Control-P
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^build$\|target'
@@ -141,11 +142,10 @@ let g:deoplete#enable_at_startup = 1
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_java_checkers = []
-
 " Emmet
 let g:user_emmet_settings = {
 \    'html': {

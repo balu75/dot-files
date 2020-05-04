@@ -4,7 +4,7 @@
 source "$HOME/.aliases"
 
 
-export TERM='xterm-256color'
+export TERM='st'
 export EDITOR=/usr/bin/vim
 export MC_SKIN=$HOME/.config/mc/solarized.ini
 
