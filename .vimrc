@@ -22,9 +22,11 @@ Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'evidens/vim-twig'
 "Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'Shougo/deoplete.nvim'
-"Plugin 'roxma/nvim-yarp'
-"Plugin 'roxma/vim-hug-neovim-rpc'
+
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
@@ -106,6 +108,7 @@ noremap <F4> :cn<CR>zz
 noremap <silent> <S-F4> :cp<CR> <bar> zz
 inoremap <C-s> <ESC>:wa<RETURN>
 inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
+noremap <Leader>rp :CtrlPClearCache<RETURN>
 
 " **************** Plugin Configurations
 
@@ -134,7 +137,7 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='base16_solarized'
 
 " Control-P
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^build$\|target'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^build$\|target\|\^target$\|tags$'
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
