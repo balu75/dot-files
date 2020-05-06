@@ -17,6 +17,9 @@ createln .xserverrc
 # Install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+# create swapfile dir
+mkdir ~/.vim/swapfiles/
+
 # Python3 Support for Vim
 echo "Python3 support for vim needed!"
 echo
