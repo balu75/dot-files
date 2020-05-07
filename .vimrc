@@ -40,6 +40,7 @@ filetype indent plugin on
 
 syntax on
 set background=dark
+set t_Co=16 " necessary for the colors in the integrated terminal
 "let g:solarized_termtrans = 1
 colorscheme solarized
 
@@ -134,7 +135,9 @@ let g:powerline_loaded=1
 " Airline
 let g:airline_powerline_fonts=1
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long' ]
+let g:airline_solarized_bg='light'
 let g:airline_theme='solarized'
+
 
 " Control-P
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^build$\|target\|\^target$\|tags$'
