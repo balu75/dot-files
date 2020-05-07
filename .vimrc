@@ -40,7 +40,7 @@ filetype indent plugin on
 
 syntax on
 set background=dark
-#let g:solarized_termtrans = 1
+"let g:solarized_termtrans = 1
 colorscheme solarized
 
 set nocompatible
