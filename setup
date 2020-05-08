@@ -13,3 +13,15 @@ createln .bash_profile
 createln .xinitrc
 createln .Xresources
 createln .xserverrc
+
+# Install vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# create swapfile dir
+mkdir ~/.vim/swapfiles/
+
+# Python3 Support for Vim
+echo "Python3 support for vim needed!"
+echo
+echo "On Debian install with:"
+echo "sudo apt install vim-nox"
