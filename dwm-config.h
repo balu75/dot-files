@@ -5,7 +5,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -70,7 +70,7 @@ static const char *dbrightupcmd[] = { "xbacklight", "-inc", "20", NULL };
 static const char *chromecmd[] = { "chromium", NULL };
 static const char *chromeinccmd[] = { "chromium", "--incognito", NULL };
 static const char *clipmenucmd[] = { "clipmenu", NULL };
-static const char *configcmd[] = { "/home/thomas/dev/config/config", NULL };
+static const char *configcmd[] = { "/home/thomas/dev/config/target/config", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
