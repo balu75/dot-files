@@ -99,20 +99,30 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
 
 let mapleader=","
 
-noremap <Leader>t :NERDTreeFocus<CR>
-noremap <Leader>T :NERDTreeToggle<CR>
-noremap <Leader>v "+p
-noremap <Leader>w :w<RETURN>
-noremap <Leader>s :wa<RETURN>
+" Insert Mode
 inoremap jj <ESC>
-noremap <Leader>h :set hls!<RETURN>
-noremap <Leader>p "+p
-vnoremap <Leader>c "+y
-noremap <F4> :cn<CR>zz
-noremap <silent> <S-F4> :cp<CR> <bar> zz
 inoremap <C-s> <ESC>:wa<RETURN>
 inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
-noremap <Leader>rp :CtrlPClearCache<RETURN>
+
+" Normal Mode
+nmap <Leader>t :NERDTreeFocus<CR>
+nmap <Leader>T :NERDTreeToggle<CR>
+nmap <Leader>v "+p
+nmap <Leader>w :w<RETURN>
+nmap <Leader>s :wa<RETURN>
+nmap <Leader>h :set hls!<RETURN>
+nmap <Leader>p "+p
+nmap <Leader>rp :CtrlPClearCache<RETURN>
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <F4> :cn<CR>zz
+nmap <silent> <S-F4> :cp<CR> <bar> zz
+
+" Visual Mode
+vnoremap <Leader>c "+y
 
 " **************** Plugin Configurations
 
