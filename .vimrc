@@ -27,6 +27,8 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'roxma/nvim-yarp'
 Plugin 'roxma/vim-hug-neovim-rpc'
 
+"Plugin 'YouCompleteMe'
+
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
@@ -108,11 +110,15 @@ inoremap <F11> <ESC>:wa<RETURN>:!start vimrun.bat<RETURN>
 nmap <Leader>t :NERDTreeFocus<CR>
 nmap <Leader>T :NERDTreeToggle<CR>
 nmap <Leader>v "+p
-nmap <Leader>w :w<RETURN>
-nmap <Leader>s :wa<RETURN>
+nmap <Leader>s :w<RETURN>
+nmap <Leader>S :wa<RETURN>
 nmap <Leader>h :set hls!<RETURN>
 nmap <Leader>p "+p
 nmap <Leader>rp :CtrlPClearCache<RETURN>
+nmap <Leader>l :set list<RETURN>
+nmap <Leader>L :set nolist<RETURN>
+nmap <Leader>hs :set hls<RETURN>
+nmap <Leader>Hs :set nohls<RETURN>
 
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -160,7 +166,7 @@ let g:deoplete#enable_at_startup = 1
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
