@@ -76,3 +76,4 @@ alias umountu="sudo umount"
 
 alias vimrc="vim ~/.vimrc"
 alias v="vim"
+alias pics="sxiv -t ."
