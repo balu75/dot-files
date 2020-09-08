@@ -14,7 +14,8 @@ createln .xinitrc
 createln .Xresources
 createln .xserverrc
 createln bin/progs
-createln .progs
+
+cp .progs ~
 
 # Install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
