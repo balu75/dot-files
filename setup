@@ -13,6 +13,8 @@ createln .bash_profile
 createln .xinitrc
 createln .Xresources
 createln .xserverrc
+createln bin/progs
+createln .progs
 
 # Install vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
