@@ -32,8 +32,18 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-/usr/bin/clipmenud &
-/home/thomas/suckless/bar/bar &
+if [ -f "/usr/bin/VBoxClient-all" ]; then
+    /usr/bin/VBoxClient-all &
+fi
+
+if [ -f "/usr/bin/clipmenud" ]; then
+    /usr/bin/clipmenud &
+fi
+
+if [ -f "/home/thomas/suckless/bar/bar" ]; then
+    /home/thomas/suckless/bar/bar &
+fi
+
 #/usr/local/bin/st -e /home/thomas/bin/tmux_start.sh&
 #/usr/bin/chromium &
 

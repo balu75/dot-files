@@ -23,9 +23,9 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'evidens/vim-twig'
 "Plugin 'christoomey/vim-tmux-navigator'
 
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
+"Plugin 'Shougo/deoplete.nvim'
+"Plugin 'roxma/nvim-yarp'
+"Plugin 'roxma/vim-hug-neovim-rpc'
 
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'

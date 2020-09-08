@@ -25,6 +25,8 @@ YELLOW="\[\033[0;33m\]"
 
 PS_LINE=`printf -- '- %.0s' {1..200}`
 function parse_git_branch {
+    echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"
+
     PS_BRANCH=''
     PS_FILL=${PS_LINE:0:$COLUMNS}
     if [ -d .svn ]; then
@@ -36,6 +38,7 @@ function parse_git_branch {
     fi
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
     PS_BRANCH="(git ${ref#refs/heads/}) "
+
 }
 PROMPT_COMMAND=parse_git_branch
 PS_INFO="$GREEN\u@\h$RESET:$BLUE\w"
@@ -43,7 +46,7 @@ PS_GIT="$YELLOW\$PS_BRANCH"
 PS_TIME="\[\033[\$((COLUMNS-10))G\] $RED[\t]"
 export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
 
-function sshagent {
+function smith {
    if [ -z "$SSH_AUTH_SOCK" ] ; then
       eval `ssh-agent -s`
       ssh-add
