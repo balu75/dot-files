@@ -1,3 +1,5 @@
 #!/bin/bash
 
-`cat ~/.progs | dmenu`
+export dmenu_params="-i -fn monospace:size=10"
+
+bash ~/menu/`ls -1 ~/menu | dmenu $dmenu_params`

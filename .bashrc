@@ -49,6 +49,8 @@ export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
 function smith {
    if [ -z "$SSH_AUTH_SOCK" ] ; then
       eval `ssh-agent -s`
-      ssh-add
+      ssh-add ~/.ssh/id_dsa
    fi
 }
+
+eval $(keychain --eval --quiet --noask id_dsa)

@@ -74,6 +74,7 @@ set path+=**
 set wrap lbr
 set splitright
 set splitbelow
+set autowrite
 
 "set t_ut= "helps With background color problems
 if has('win32')
