@@ -1,0 +1,9 @@
+read -d '' cat << eom
+test1
+test2
+test3
+eom
+
+result=`echo -e "$cat" | dmenu $dmenu_params -p "test eingeben"`
+
+st bash -c "echo $result ; read"

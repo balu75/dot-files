@@ -1,0 +1,7 @@
+networks=`wpa_cli list_networks | awk '{if ($2!="any" && $1 ~ /[0-9]/) print $2}'`
+
+result=`echo -e "$networks" | dmenu $dmenu_params -p "Network?"`
+
+networkid=`wpa_cli list_networks | awk -v r=$result '{if ($2==r) print $1}'`
+
+st bash -c "wpa_cli select_network $networkid ; read"

@@ -1,0 +1,2 @@
+dir=`ls -1  ~/images | dmenu $dmenu_params`
+sxiv -t -r ~/images/$dir

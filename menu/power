@@ -1,0 +1,21 @@
+#!/bin/bash
+
+read -d '' cat << eom
+suspend
+off
+reboot
+monitor
+eom
+
+result=`echo -e "$cat" | dmenu $dmenu_params -p "Power?"`
+
+case "$result" in
+    "suspend") systemctl suspend
+        ;;
+    "off") systemctl poweroff
+        ;;
+    "reboot") systemctl reboot
+        ;;
+    "monitor") xset dpms force off
+        ;;
+esac

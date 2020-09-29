@@ -2,4 +2,4 @@
 
 export dmenu_params="-i -fn monospace:size=10"
 
-bash ~/menu/`ls -1 ~/menu | dmenu $dmenu_params`
+bash ~/dot-files/menu/`ls -1 ~/dot-files/menu | dmenu $dmenu_params`
