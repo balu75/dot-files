@@ -8,47 +8,39 @@ export TERM='xterm-256color'
 
 export EDITOR=/usr/bin/vim
 export MC_SKIN=$HOME/.config/mc/solarized.ini
+export KERN_API_PASSWD=3fm.yxjYkqRL
 
 stty -ixon
 
-# A two-line colored Bash prompt (PS1) with Git branch and a line decoration
-# which adjusts automatically to the width of the terminal.
-# Recognizes and shows Git, SVN and Fossil branch/revision.
-# Screenshot: http://img194.imageshack.us/img194/2154/twolineprompt.png
-# Michal Kottman, 2012
- 
-RESET="\[\033[0m\]"
-RED="\[\033[0;31m\]"
-GREEN="\[\033[01;32m\]"
-BLUE="\[\033[01;34m\]"
-YELLOW="\[\033[0;33m\]"
-
-PS_LINE=`printf -- '- %.0s' {1..200}`
-function parse_git_branch {
-    echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"
-
-    PS_BRANCH=''
-    PS_FILL=${PS_LINE:0:$COLUMNS}
-    if [ -d .svn ]; then
-        PS_BRANCH="(svn r$(svn info|awk '/Revision/{print $2}'))"
-        return
-    elif [ -f _FOSSIL_ -o -f .fslckout ]; then
-        PS_BRANCH="(fossil $(fossil status|awk '/tags/{print $2}')) "
-        return
-    fi
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    PS_BRANCH="(git ${ref#refs/heads/}) "
-
-}
-PROMPT_COMMAND=parse_git_branch
-PS_INFO="$GREEN\u@\h$RESET:$BLUE\w"
-PS_GIT="$YELLOW\$PS_BRANCH"
-PS_TIME="\[\033[\$((COLUMNS-10))G\] $RED[\t]"
-export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
+export GIT_PS1_SHOWDIRTYSTATE=1
+export PS1="\[\033[32m\]\W\[\033[33m\]\$(__git_ps1 ' (%s)')\[\033[00m\] $ "
 
 function smith {
    if [ -z "$SSH_AUTH_SOCK" ] ; then
       eval `ssh-agent -s`
       ssh-add
    fi
+}
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+export FZF_DEFAULT_COMMAND="find . -maxdepth 5"
+
+function fid() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf-tmux +m) &&
+  cd "$dir"
+}
+
+function fdd() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && cd "`dirname "${files[@]}"`"
+}
+
+fe() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }

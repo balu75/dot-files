@@ -47,8 +47,17 @@ fi
 #/usr/local/bin/st -e /home/thomas/bin/tmux_start.sh&
 #/usr/bin/chromium &
 
+imwheel -b "4 5"&
+
+xsettingsd &
+
 # switch caps lock to esc
 setxkbmap -option caps:escape
+
+eval $(ssh-agent)
+
+wmname LG3D
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 exec dwm
 #exec i3

@@ -1,3 +1,6 @@
 #!/bin/bash
 
-`cat ~/.progs | dmenu`
+prg=`ls -1 ~/menu | dmenu`
+#st bash -c "echo $prg ; read"
+
+bash ~/menu/$prg

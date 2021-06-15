@@ -74,6 +74,19 @@ alias mon_off="xset dpms force off"
 alias mountu="sudo mount -o gid=thomas,uid=thomas,fmask=113,dmask=002"
 alias umountu="sudo umount"
 
-alias vimrc="vim ~/.vimrc"
+alias vrc="vim ~/.vimrc; source ~/.vimrc"
+alias vali="vim ~/.aliases; source ~/.aliases"
 alias v="vim"
 alias pics="sxiv -t ."
+
+alias cdcb="cd ~/dev/ts/connectors-backend/"
+alias cdcff="cd ~/dev/ts/connectors-frontend-fsm/"
+alias cdffm="cd ~/dev/ts/frontend-fsm-module/"
+alias mvnfsm="mvn -Pfirstspirit-module-create clean install"
+
+alias todo="v ~/dev/docs/todo_win.txt"
+alias fd="fdfind"
+
+trash() {
+    mv "$1" ~/trash
+}
