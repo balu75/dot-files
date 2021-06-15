@@ -1,1 +1,1 @@
-st bash -c "ssh-add ; echo 'Press Key' ; read"
+st bash -c "echo 'Puppe' ; ssh-add ; echo 'Press Key' ; read"

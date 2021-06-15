@@ -21,18 +21,19 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'evidens/vim-twig'
+Plugin 'morhetz/gruvbox'
 "Plugin 'christoomey/vim-tmux-navigator'
 
 "Plugin 'Shougo/deoplete.nvim'
 "Plugin 'roxma/nvim-yarp'
 "Plugin 'roxma/vim-hug-neovim-rpc'
 
-"Plugin 'YouCompleteMe'
-
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
 Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'dense-analysis/ale'
 call vundle#end()
 
 
@@ -42,16 +43,16 @@ filetype indent plugin on
 
 syntax on
 set background=dark
-set t_Co=16 " necessary for the colors in the integrated terminal
+"set t_Co=16 " necessary for the colors in the integrated terminal
 "let g:solarized_termtrans = 1
-colorscheme solarized
+colorscheme gruvbox
 
 set nocompatible
 set ff=unix
 set belloff=all
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set laststatus=2
 set encoding=utf-8
@@ -68,7 +69,11 @@ set incsearch
 set nolist
 set listchars=trail:·,tab:»\ ,eol:$
 set directory=~/.vim/swapfiles//
-set cm=blowfish2
+
+if !has('nvim')
+    set cm=blowfish2
+endif
+
 set showcmd
 set path+=**
 set wrap lbr
@@ -100,7 +105,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
 
 " **************** Key Mappings
 
-let mapleader=","
+let mapleader=" "
 
 " Insert Mode
 inoremap jj <ESC>
@@ -120,6 +125,7 @@ nmap <Leader>l :set list<RETURN>
 nmap <Leader>L :set nolist<RETURN>
 nmap <Leader>hs :set hls<RETURN>
 nmap <Leader>Hs :set nohls<RETURN>
+nmap <Leader>d :YcmCompleter GoToDeclaration<RETURN>
 
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -127,6 +133,7 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <F4> :cn<CR>zz
 nmap <silent> <S-F4> :cp<CR> <bar> zz
+nmap <F8> :w\|silent exec "!tmux send-keys -t 1 ./convert.sh Enter"\|redraw!<CR>
 
 " Visual Mode
 vnoremap <Leader>c "+y
@@ -156,7 +163,7 @@ let g:powerline_loaded=1
 let g:airline_powerline_fonts=1
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing', 'long' ]
 
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 
 " Control-P

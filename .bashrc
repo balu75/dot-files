@@ -11,40 +11,10 @@ export MC_SKIN=$HOME/.config/mc/solarized.ini
 
 stty -ixon
 
-# A two-line colored Bash prompt (PS1) with Git branch and a line decoration
-# which adjusts automatically to the width of the terminal.
-# Recognizes and shows Git, SVN and Fossil branch/revision.
-# Screenshot: http://img194.imageshack.us/img194/2154/twolineprompt.png
-# Michal Kottman, 2012
- 
-RESET="\[\033[0m\]"
-RED="\[\033[0;31m\]"
-GREEN="\[\033[01;32m\]"
-BLUE="\[\033[01;34m\]"
-YELLOW="\[\033[0;33m\]"
-
-PS_LINE=`printf -- '- %.0s' {1..200}`
-function parse_git_branch {
-    echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"
-
-    PS_BRANCH=''
-    PS_FILL=${PS_LINE:0:$COLUMNS}
-    if [ -d .svn ]; then
-        PS_BRANCH="(svn r$(svn info|awk '/Revision/{print $2}'))"
-        return
-    elif [ -f _FOSSIL_ -o -f .fslckout ]; then
-        PS_BRANCH="(fossil $(fossil status|awk '/tags/{print $2}')) "
-        return
-    fi
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    PS_BRANCH="(git ${ref#refs/heads/}) "
-
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-PROMPT_COMMAND=parse_git_branch
-PS_INFO="$GREEN\u@\h$RESET:$BLUE\w"
-PS_GIT="$YELLOW\$PS_BRANCH"
-PS_TIME="\[\033[\$((COLUMNS-10))G\] $RED[\t]"
-export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_GIT}${PS_TIME}\n${RESET}\$ "
+export PS1="\u@\h \[\e[32m\]\W \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
 function smith {
    if [ -z "$SSH_AUTH_SOCK" ] ; then
@@ -54,3 +24,13 @@ function smith {
 }
 
 eval $(keychain --eval --quiet --noask id_dsa)
+
+function fcd {
+    cd `find . -type d 2>/dev/null | fzf`
+}
+
+function fv {
+    vi `fzf 2>/dev/null`
+}
+
+source /usr/share/bash-completion/completions/pass

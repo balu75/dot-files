@@ -1,5 +1,7 @@
 read -d '' cat << eom
-all
+dock
+dock2
+minidvi
 notebook
 off
 eom
@@ -7,12 +9,18 @@ eom
 result=`echo -e "$cat" | dmenu $dmenu_params -p "Choose Monitor Configuration"`
 
 case "$result" in
-    "All Monitors") xrandr --output HDMI3 --auto --left-of LVDS1 --output HDMI1 --auto --left-of LVDS1
-        echo "All Monitors"
+    "dock") xrandr --output HDMI3 --auto --left-of LVDS1
+        echo "Dock"
         ;;
-    "Notebook only") xrandr --output HDMI3 --off --output HDMI1 --off
+    "dock2") xrandr --output LVDS1 --auto --output DP2 --auto --left-of LVDS1
+        echo "Dock2"
+        ;;
+    "minidvi") xrandr --output HDMI1 --auto --left-of LVDS1
+        echo "mini dvi"
+        ;;
+    "notebook") xrandr --output HDMI3 --off --output HDMI1 --off --output DP2 --off
         echo "Notebook only"
         ;;
-    "Off") xset dpms force off
+    "off") xset dpms force off
         ;;
 esac

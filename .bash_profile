@@ -2,6 +2,8 @@
 # ~/.bash_profile
 #
 
+umask 002
+
 PATH="$PATH:$HOME/bin"
 
 [[ -f ~/.bash_profile_local ]] && . ~/.bash_profile_local
