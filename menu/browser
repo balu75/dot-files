@@ -1,0 +1,13 @@
+read -d '' cat << eom
+firefox
+chromium
+eom
+
+result=`echo -e "$cat" | dmenu $dmenu_params -p "Choose Browser"`
+
+case "$result" in
+    "firefox") firefox
+        ;;
+    "chromium") chromium
+        ;;
+esac

@@ -69,6 +69,7 @@ set incsearch
 set nolist
 set listchars=trail:·,tab:»\ ,eol:$
 set directory=~/.vim/swapfiles//
+set spellfile=~/.vim/spell/de.utf8.add
 
 if !has('nvim')
     set cm=blowfish2
@@ -99,6 +100,7 @@ endif
 au BufNewFile,BufRead *.gsp set filetype=html
 
 au FileType * setl foldmethod=manual
+au FileType asciidoc setl tw=80
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
             \| exe "normal! g`\"" | endif
@@ -126,6 +128,8 @@ nmap <Leader>L :set nolist<RETURN>
 nmap <Leader>hs :set hls<RETURN>
 nmap <Leader>Hs :set nohls<RETURN>
 nmap <Leader>d :YcmCompleter GoToDeclaration<RETURN>
+nmap <Leader>sd :setlocal spell spelllang=de_de<RETURN>
+nmap <Leader>c :w\|silent exec "!tmux send-keys -t 1 ./convert.sh Enter"\|redraw!<CR>
 
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -133,7 +137,6 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <F4> :cn<CR>zz
 nmap <silent> <S-F4> :cp<CR> <bar> zz
-nmap <F8> :w\|silent exec "!tmux send-keys -t 1 ./convert.sh Enter"\|redraw!<CR>
 
 " Visual Mode
 vnoremap <Leader>c "+y

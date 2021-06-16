@@ -4,7 +4,7 @@
 source "$HOME/.aliases"
 
 
-export TERM='xterm-256color'
+export TERM='st-256color'
 
 export EDITOR=/usr/bin/vim
 export MC_SKIN=$HOME/.config/mc/solarized.ini
@@ -34,3 +34,4 @@ function fv {
 }
 
 source /usr/share/bash-completion/completions/pass
+source /usr/share/bash-completion/completions/git
