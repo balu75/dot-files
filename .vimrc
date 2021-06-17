@@ -22,7 +22,7 @@ Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'evidens/vim-twig'
 Plugin 'morhetz/gruvbox'
-"Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 
 "Plugin 'Shougo/deoplete.nvim'
 "Plugin 'roxma/nvim-yarp'
@@ -137,6 +137,7 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <F4> :cn<CR>zz
 nmap <silent> <S-F4> :cp<CR> <bar> zz
+nnoremap <silent> vv <C-w>v
 
 " Visual Mode
 vnoremap <Leader>c "+y
