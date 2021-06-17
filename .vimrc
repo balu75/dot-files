@@ -8,6 +8,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
+Plugin 'preservim/vimux'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
@@ -138,6 +139,10 @@ nmap <C-l> <C-w>l
 nmap <F4> :cn<CR>zz
 nmap <silent> <S-F4> :cp<CR> <bar> zz
 nnoremap <silent> vv <C-w>v
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vz :VimuxZoomRunner<CR>
 
 " Visual Mode
 vnoremap <Leader>c "+y
