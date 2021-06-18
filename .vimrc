@@ -135,8 +135,8 @@ nmap <Leader>c :w\|silent exec "!tmux send-keys -t 1 ./convert.sh Enter"\|redraw
 
 " fugitive
 nmap <Leader>g :G<RETURN>
-nmap <Leader>gp :Gpull<RETURN>
-nmap <Leader>gP :Gpush<RETURN>
+nmap <Leader>gl :Git pull<RETURN>
+nmap <Leader>gs :Git push<RETURN>
 
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
