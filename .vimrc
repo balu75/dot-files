@@ -82,6 +82,7 @@ set wrap lbr
 set splitright
 set splitbelow
 set autowrite
+set autoread
 
 "set t_ut= "helps With background color problems
 if has('win32')
@@ -131,6 +132,11 @@ nmap <Leader>Hs :set nohls<RETURN>
 nmap <Leader>d :YcmCompleter GoToDeclaration<RETURN>
 nmap <Leader>sd :setlocal spell spelllang=de_de<RETURN>
 nmap <Leader>c :w\|silent exec "!tmux send-keys -t 1 ./convert.sh Enter"\|redraw!<CR>
+
+" fugitive
+nmap <Leader>g :G<RETURN>
+nmap <Leader>gp :Gpull<RETURN>
+nmap <Leader>gP :Gpush<RETURN>
 
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
