@@ -131,6 +131,8 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+nmap <Leader>cn :cn<CR>zz
+nmap <silent> <Leader>cp :cp<CR> <bar> zz
 nmap <F4> :cn<CR>zz
 nmap <silent> <S-F4> :cp<CR> <bar> zz
 nmap vv :vsplit<CR>
