@@ -39,6 +39,7 @@ syntax on
 set background=dark
 colorscheme gruvbox
 
+set autoread
 set nocompatible
 set ff=unix
 set belloff=all
@@ -64,7 +65,7 @@ set directory=~/.vim/swapfiles//
 set cm=blowfish2
 set showcmd
 set path+=**
-set wrap lbr
+set nowrap
 set splitright
 set splitbelow
 
@@ -102,7 +103,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$")
 
 " **************** Key Mappings
 
-let mapleader=","
+let mapleader=" "
 
 " Insert Mode
 inoremap jj <ESC>

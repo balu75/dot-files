@@ -90,3 +90,5 @@ alias fd="fdfind"
 trash() {
     mv "$1" ~/trash
 }
+
+alias ssh_tsbuildnew2="ssh idmedia@202.61.195.121"
