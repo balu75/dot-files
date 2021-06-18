@@ -26,6 +26,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'mileszs/ack.vim'
+Plugin 'preservim/vimux'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 
@@ -131,6 +133,7 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <F4> :cn<CR>zz
 nmap <silent> <S-F4> :cp<CR> <bar> zz
+nmap vv :vsplit<CR>
 
 " Visual Mode
 vnoremap <Leader>c "+y
