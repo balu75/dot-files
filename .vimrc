@@ -4,6 +4,7 @@ set rtp+=$HOME/.vim/bundle/Vundle.vim
  
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+Plugin 'rking/ag.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -121,6 +122,7 @@ nmap <Leader>t :NERDTreeFocus<CR>
 nmap <Leader>T :NERDTreeToggle<CR>
 nmap <Leader>v "+p
 nmap <Leader>s :w<RETURN>
+nmap <Leader>w :w<RETURN>
 nmap <Leader>S :wa<RETURN>
 nmap <Leader>h :set hls!<RETURN>
 nmap <Leader>p "+p
@@ -152,6 +154,10 @@ map <Leader>vz :VimuxZoomRunner<CR>
 
 " Visual Mode
 vnoremap <Leader>c "+y
+
+map <leader>vm :vsp ~/.vimrc<CR>
+map <leader>vs :source ~/.vimrc<CR>
+
 
 " **************** Plugin Configurations
 
@@ -203,7 +209,6 @@ let g:user_emmet_settings = {
 
 
 " **************** Own Functions
-
 function! SearchGroovyFunction()
     execute "normal! /" . expand("<cword>") . ".*\\_.[ \\t]*{\<enter>"
 endfunction
