@@ -64,12 +64,12 @@ set incsearch
 set nolist
 set listchars=trail:·,tab:»\ ,eol:$
 set directory=~/.vim/swapfiles//
-set cm=blowfish2
 set showcmd
 set path+=**
 set nowrap
 set splitright
 set splitbelow
+set timeoutlen=1500
 
 highlight SpellBad cterm=underline
 
@@ -207,3 +207,14 @@ function! SearchGroovyFunction()
 endfunction
 command! -nargs=0 GroovyFunction call SearchGroovyFunction()
 map <Leader>f :call SearchGroovyFunction()<CR>
+
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+            \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
