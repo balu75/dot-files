@@ -46,3 +46,9 @@ fe() {
 }
 
 source /usr/share/doc/fzf/examples/key-bindings.bash
+
+pass() {
+    clipctl disable
+    /usr/bin/pass "$@"
+    clipctl enable
+}
