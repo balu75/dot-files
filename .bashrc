@@ -32,3 +32,5 @@ function fv {
 
 source /usr/share/bash-completion/completions/pass
 source /usr/share/bash-completion/completions/git
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
