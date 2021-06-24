@@ -28,9 +28,13 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'mileszs/ack.vim'
 Plugin 'preservim/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-
+Plugin 'rking/ag.vim'
+Plugin 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+Plugin 'carlitux/deoplete-ternjs'
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
 call vundle#end()
-
 
 " **************** General Settings
 
@@ -38,9 +42,9 @@ filetype indent plugin on
 
 syntax on
 
+let g:deoplete#enable_at_startup = 1
 set background=dark
 colorscheme gruvbox
-
 set autoread
 set nocompatible
 set ff=unix
@@ -181,6 +185,14 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|^build$\|target\|\^tar
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+"
+" Use smartcase.
+call deoplete#custom#source('_', 'smart_case', v:true)
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+    return deoplete#close_popup() . "\<CR>"
+endfunction
 
 " Syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -218,3 +230,5 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
             \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+call deoplete#custom#option('num_processes', 4)
